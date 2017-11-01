@@ -1,0 +1,7 @@
+1. Go to facebook.com
+create smoke test cases for register functionality
+
+
+2.Go to https://www.expedia.com/
+click on My Trips
+verify sign in with facebook functinality for smoke test cases

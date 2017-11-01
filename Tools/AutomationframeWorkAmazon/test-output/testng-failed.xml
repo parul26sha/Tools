@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test name="Test(failed)">
+    <classes>
+      <class name="com.ebay.pagesTest.FashionPageTest">
+        <methods>
+          <include name="closeDriver"/>
+          <include name="setDriver"/>
+          <include name="searchData" invocation-numbers="2"/>
+        </methods>
+      </class> <!-- com.ebay.pagesTest.FashionPageTest -->
+      <class name="com.ebay.pagesTest.HomePageTest">
+        <methods>
+          <include name="closeDriver"/>
+          <include name="setDriver"/>
+        </methods>
+      </class> <!-- com.ebay.pagesTest.HomePageTest -->
+      <class name="com.ebay.pagesTest.DressPageTest">
+        <methods>
+          <include name="closeDriver"/>
+          <include name="setDriver"/>
+          <include name="beforeSuite"/>
+        </methods>
+      </class> <!-- com.ebay.pagesTest.DressPageTest -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->

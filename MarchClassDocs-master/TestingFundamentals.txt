@@ -1,0 +1,384 @@
+dev sit(system integration testing) uat(user acceptance testing) prod(Live)
+dev  qa1	qa2		prod
+
+Testing is a process- not a single activity
+
+Verification - Just to make sure product is built as per requirement, Verification is whitebox testing- 
+done by developers
+Validation - Make sure product is built as per requirement and also test as end user
+(w.r.to different user activities, performance, security, configuration, compatibility etc) ,
+It is blackbox testing, It is done by QA group.
+
+Whitebox Testing : Testing the functionality by knowing the design and code details, 
+In whitebox testing we write code to test the code.
+Generally develeopers do white box testing - unit testing.
+
+public int noOfSubjects(String courseName){
+
+if(courseName=="QA"){
+return 10;
+}else if(courseName=="UI"){
+return 15;
+}
+}
+
+@Test
+public void testNoOfSubjects(){
+  actual = noOfSubjects("QA");
+  expected = 10;
+  if(actual == expected){
+   log(working as exepected);
+  }else{
+   log(Test fail - results do not match);
+  }
+
+}
+
+
+Blackbox Testing :  Testing the functionality by not knowing the design and code details. 
+Done by Qa group.
+
+
+TestCases - Can be written in excel/word doc/Rally/JIRA/Wiki links
+
+
+What testcase consist of:
+Date, AuthorName, company,
+TestCaseId
+Description
+priority
+Precondition
+TestSteps
+TestData
+expected
+actual
+result
+
+
+Qa should do basic debugging before raising a defect:
+I would check browser dev tools(by right click and inspect or directly press F12) console, network tabs
+to figure out any client side logs in console, API issue in network tab.
+If I could not find the reason by dev tools I would further check server logs(by connecting to unix server machine).
+
+Once we do basic debugging we would atleast know whether the issue is in client side, API side, server side logic
+or in DataBase or with deployment.
+
+Retesting - Test the defect that is fixed to make sure if it is properly fixed.
+
+RegressionTesting- After a defect fix or enhancement we try to test already tested functionalities
+to make sure that new enhancement or defect fix did not break the existing things.
+
+SmokeTesting - Crtical functionality which when fails - you cannot proceed with any further testing
+FunctionaltyTesting - All scenarios as per the requirement.
+RegressionTesting - SuperSet of smoke test cases and subset of functionality test cases.
+
+dev sit uat prod
+
+unit testing
+
+IntegrationTesting:
+1.SystemIntegrationTesting
+2.ComponentIntegrationTesting
+
+we have 3 diff approaches:
+BigBang
+TopDown
+BottomUP
+
+SystemTesting
+UserAcceptanceTesting
+ProductionValidation/Testing
+
+In SIT and UAT - we will have 
+SmokeTesting
+RegressionTesting
+
+TDD- Test Driven Development
+login - 10 testcases - 10 unit test methods - tests are driving the develepment.
+BDD - Behaviour driven development
+Login
+Register
+Search
+AddToCart
+
+Some of popular behaviour driven development frameworks are Cucumber, Jasmine etc...
+
+SystemTesting:
+FunctionalTesting
+PerformanceTesting - concurrent users to application
+- what do we analyze in performance testing - 
+ResponseTime(time to get complete response), 
+Latency(time to get first byte of response), 
+Throughput(no of requests served per unit time)
+Always for good peformance - response time and latency should be less and throughput should be more.
+
+Load testing-
+Stress testing- try to find out breaking point for application
+Volume testing- testing with more volume data in database
+
+Usability
+- look and feel
+- fonta, colors, size of fonts, images
+- broken links 
+- scrolling
+- pagination
+- select, radio, navigations
+- responsive web design
+
+Configuration
+
+Compatibilty
+
+OS
+browsers
+versions
+TestDeviceMatrix
+
+SecurityTesting :
+
+Authentication
+
+Authorization- Role of user
+
+SecurityQuestions
+
+Captcha 
+
+DDOS attack
+
+SQL Injection:
+
+select * from Users where userid=''delete from user'' or '1=1' and pwd= ''
+
+CrossSiteScripting
+
+Malicious script
+
+
+Localization:
+
+Internationalisation:
+
+Accesibility:
+HTml alt 
+aria attributes in html
+ADA compliant
+
+Installation/Uninistallation
+
+
+
+MObileapplications:
+native- facebook 
+hybrid- gmail
+mobileweb applications- which u can open in mobile browser- 
+
+
+Blackbox Testing techniques:
+Equivalence Partitioning : test data based on valid and invalid partitioning
+   1-10
+   Invalid - <1 and >10
+   valid - 1-10
+   
+   0,12, 2,3
+
+Boundary Value Anaysis :
+	1-10
+   Invalid - <1 and >10
+   valid - 1-10
+   
+   at the boundary
+   just below the boundary
+   just above the boundary
+   
+   1, 10, 11,9, 2, 0
+
+DecisionTables
+StateBasedTesting
+ErrorGuessing
+ExploratoryTesting
+
+
+
+Whitebox Testing techniques:
+
+if( n%3== 0 && n%5==0){
+ div by 3 and 5
+}else if(n%3== 0){
+div by 3
+}else if(n%5== 0){
+div by 5;
+}else{
+Not div  by 3 or 5
+}
+
+4 statements
+3 conditions
+4 decsions
+
+15
+20
+18
+7
+
+decisionCoverage
+StatementCoverage
+ConditionalCoverage
+
+void procedure(int a, int b, int x)
+
+{
+
+If ((a>1) && (b==0))
+
+{
+
+x=x/a;
+
+}
+
+If ((a==2 || x>1))
+
+{ x=x+1; }
+
+}
+
+statements- 2
+decisions- 2
+conditions- 4
+
+a=2 b=0 x=3
+a=2 b=1 x=3
+a=0 b=0 x=2
+
+
+
+int[] ids = new int[100];
+if(some condition){
+ids = new int[100];
+  ids
+
+}
+
+Why Automate:
+Efficient usage of time and resources
+Regression test cases
+DataDrivenTesting - same testcase with multple sets of data
+tests which cannot be tested manually -broken links(500 links), test attributes in html
+
+when not to automate:
+when application look and feel is going to completely change in mere future
+when u have tight deadlines- we cannot automate
+features which need human intervention- could be reading an otp for transaction processing, captcha images
+look and feel- usabilty- audio, video etc..
+
+Test Automation framework:
+
+Building a project structure for easy maintenance and to avoid code redundancy.
+
+avoid hard coded data in code
+data driven testing
+assertions(compare actual and expected) - using unti testing fws
+logs
+reports
+combine testcases - test suites
+execute them using build frameworks- like maven
+
+
+TestStrategy: By ProjectManager/QAManager and it does not change frequently
+Scope
+Objective
+Environment
+Resources
+
+TypesOfTesting:
+UnitTesting
+FunctionalTesting
+UsabilityTesting
+ConfigurationTesting
+PerformanceTesting
+SecurityTesting
+AccesbiltyTesting
+
+SAMPLE:
+http://sce.uhcl.edu/helm/RUP_course_example/courseregistrationproject/artifacts/test/plans/test_plan_arch.htm 
+
+
+
+TestPlan: By TeamLead or QA Lead 
+
+TypesOfTesting:
+UnitTesting:
+Entry criteria - dev completes coding for given functionality
+exit criteria - all the unit test cases are success
+
+FunctionalTesting:
+Entry criteria - unit testing is completed 
+exit criteria - all the functionality as per requirement and all high/medium are fixed.
+
+IntegrationTesting:
+Entry criteria -  
+exit criteria - all the integration test cases are completed and all high/medium are fixed.
+
+SystemTesting
+
+UsabilityTesting:
+Entry criteria
+exit criteria
+
+ConfigurationTesting
+PerformanceTesting
+SecurityTesting
+AccesbiltyTesting
+
+resources- timelines
+release- features
+risks
+
+Defect/Bug:
+id
+decription
+replication steps
+actual
+expected
+summary/Notes
+Priority
+severity
+logs/screenshots
+versions
+release
+expected date
+open/assigned/in progress/verified/closed
+
+Difference between priority and severity?
+
+priority - business
+severity - how it effects product
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

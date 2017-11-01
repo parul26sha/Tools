@@ -1,0 +1,78 @@
+-- Avg salary of all employees
+select salary,employee_id from hr.employees;
+select min(salary) from hr.employees;
+select max(salary) from hr.employees;
+select count(*) from hr.employees where job_id='IT_PROG';
+select sum(salary) from hr.employees;
+select avg(salary),min(salary) from hr.employees;
+--Do not combine group functions with single columns- Below query gives error
+--select avg(salary),salary,employee_id from hr.employees;
+
+--select * from hr.employees;
+
+--Avg salary under each department in employees table
+--select avg(salary),department_id from hr.employees group by department_id; 
+
+-- Min salary under each department and each job_id within department 
+--select avg(salary),department_id,job_id from hr.employees group by department_id, job_id order by department_id, job_id; 
+
+--InnerJoin:
+select * from hr.locations;
+
+-- natural join - it joins with department_id and manager_id
+select employee_id, first_name, department_id, department_name,city from hr.employees
+natural join hr.departments natural join hr.locations;
+
+--join with using - join only using department_id
+
+--select employee_id, first_name, department_id, department_name from hr.employees
+--join hr.departments using department_id;
+
+--join with on
+
+select e.employee_id, e.first_name, d.department_id, d.department_name,l.city,l.location_id from hr.employees e
+join hr.departments d on e.department_id = d.department_id
+join hr.locations l on d.location_id=l.location_id
+--group by d.department_id;
+
+
+-outer join:
+select e.employee_id, e.first_name, d.department_name, l.city
+from hr.employees e
+right outer join hr.departments d
+on e.department_id=d.department_id
+left outer join hr.locations l
+on l.location_id=d.location_id
+
+-- non equi join
+SELECT e.last_name, e.salary, j.grade_level
+
+FROM employees e JOIN job_grades j
+
+ON e.salary
+
+BETWEEN j.lowest_sal AND j.highest_sal;
+
+--self join
+
+
+
+
+
+
+
+amazon
+
+
+product  supplierName   cost
+            Hp
+			Hp
+			Hp
+			Dell
+			Dell
+			Apple
+			
+no of products under each supplier
+
+costliest mobile under each manufacturer like samsung, apple , google
+

@@ -1,0 +1,35 @@
+
+Assignment 1:
+Write a program to define Employee and Department class with some required variables
+Class that calculates bonus for employee based on department.
+Payroll class that displays salary for employees with different departments
+
+Assignment2:
+1) write a program to print all even numbers between 1 to 100? 
+2) Write a program to print multiplicatoin table for 10?
+10 * 1 = 10
+10 * 2 = 20
+10 * 3 = 30
+..
+10 * 10 = 100
+int y = 10 * i;
+sop( "10 * " + i + " = " + y )
+
+Assignement 3:
+1) Write a program to Count all the words in file?
+input - hello, how are you today 
+output - 5
+2) Write a program to Print all the words in file?
+input - hello, how are you today 
+output - 
+hello,
+how
+are
+you 
+today
+
+Assignement 4:
+Write a program to find max of prices from given array of prices in String format.
+eg: i/p : {$500,$400,$100,$750}
+o/p: 750
+Write a program to create Thread in java.

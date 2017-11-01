@@ -1,0 +1,183 @@
+Java 
+
+AndroidSDK(package of class files, exceutables required for android setup) 
+and AndroidStudio(IDE for android native development like eclipse for java developement)
+
+ios-xcode(ide for ios development like eclipse ), iosConsole
+
+Appium
+
+Appium is an open source, cross-platform test automation tool for native,
+hybrid and mobile web apps, tested on simulators (iOS, FirefoxOS), emulators (Android), and real devices (iOS, Android, Windows, FirefoxOS).
+
+
+Code using Appium - we can run same code on emulators/simulators/real devices
+
+versions of ios supported by appium:
+Versions: 7.1, 8.0, 8.1, 8.2, 8.3, 8.4, 9.0, 9.1 , 9.2
+
+until ios9- xcode6  - appium 1.4.3
+ios10-  XCODE 8 (INCLUDING IOS 10) WITH XCUITEST with device console
+
+Versions of Android:
+4.4 and above- 4.4, 5, 6, 7
+
+2.3 through 4.2 - Selendroid
+
+ 
+For Setup=-Basic requirements:
+
+iOS Requirements
+
+Mac OS X 10.10 or higher, 10.11.1 recommended
+XCode >= 6.0, 7.1.1 recommended
+Apple Developer Tools (iPhone simulator SDK, command line tools)
+Ensure you read our documentation on setting yourself up for iOS testing!
+Android Requirements
+
+Android SDK API >= 17 (Additional features require 18/19)
+Appium supports Android on OS X, Linux and Windows. Make sure you follow the directions for setting up your environment properly for testing on different OSes:
+linux
+osx
+windows
+Windows Requirements
+
+Windows 10
+Documentation
+FirefoxOS Requirements
+
+Firefox OS Simulator
+
+
+
+
+Appium acts as Node.JS based server and follows JSONWireprotocol
+It internally uses UIAutomator(Android) and UIAutomation(ios) frameworks
+
+
+
+
+
+APPIUM PHILOSOPHY
+
+Appium was designed to meet mobile automation needs according to a philosophy outlined by the following four tenets:
+
+You shouldn’t have to recompile your app or modify it in any way in order to automate it.
+You shouldn’t be locked into a specific language or framework to write and run your tests.
+A mobile automation framework shouldn’t reinvent the wheel when it comes to automation APIs.
+A mobile automation framework should be open source, in spirit and practice as well as in name!
+APPIUM DESIGN
+
+So how does the structure of the Appium project live out this philosophy? We meet requirement #1 by using vendor-provided automation frameworks under the hood. That way, we don’t need to compile in any Appium-specific or third-party code or frameworks to your app. This means you’re testing the same app you’re shipping. The vendor-provided frameworks we use are:
+
+iOS: Apple’s UIAutomation
+Android 4.2+: Google’s UiAutomator
+Android 2.3+: Google’s Instrumentation. (Instrumentation support is provided by bundling a separate project, Selendroid)
+Windows: Microsoft’s WinAppDriver
+We meet requirement #2 by wrapping the vendor-provided frameworks in one API, the WebDriver API. WebDriver (aka “Selenium WebDriver”) specifies a client-server protocol (known as the JSON Wire Protocol). Given this client-server architecture, a client written in any language can be used to send the appropriate HTTP requests to the server. There are already clients written in every popular programming language. This also means that you’re free to use whatever test runner and test framework you want; the client libraries are simply HTTP clients and can be mixed into your code any way you please. In other words, Appium & WebDriver clients are not technically “test frameworks” – they are “automation libraries”. You can manage your test environment any way you like!
+
+We meet requirement #3 in the same way: WebDriver has become the de facto standard for automating web browsers, and is a W3C Working Draft. Why do something totally different for mobile? Instead we have extended the protocol with extra API methods useful for mobile automation.
+
+It should be obvious that requirement #4 is a given – you’re reading this because Appium is open source.
+
+
+UIAutomator: Andrpoid automation fw - combination of UIAutomtorViewer + UIDevice API class + Automation API classes- UIObject, UIScrollable, UICollection etc
+this fw is internally used by appium.
+https://developer.android.com/topic/libraries/testing-support-library/index.html#UIAutomator
+
+Links for ref:
+
+http://appium.io/getting-started.html?lang=en
+http://appium.io/slate/en/master/?ruby#appium-platform-support
+http://appium.io/slate/en/master/?ruby#appium-philosophy
+http://appium.io/slate/en/master/#about-appium
+
+package/bundle all files together so that we can deploy code to server environment.
+jar /war/ear  - java application-jar
+java web application- war
+java enterprise application - ear
+
+apk - android code package or ipa file - ios code package
+
+How you get apk or ipa file in real time:
+build team will provide the apk/ipa or we need to build it from the given source code
+for ios apps- we need developer certificate to be included in build - which can be done thru xcode-this will be taken care by build team
+
+ipa build with  dev certificate for runnign code thru appium
+ipa build without  dev certificate for manual testing
+
+hockeyApp - ios and android app where we can upload and download builds
+ifunbox - ipa files 
+testFlight- ipa and apk
+
+for debugging n/w traffic/apis - charles proxy
+
+TestDevice Matrix- what all devices in which your app should be tested
+Google,Samsung,Motorola,iphone 6/7
+
+
+Regression- Jenkins setup in lab with all the different devices in grid / clould based platforms like SaueLabs/BroweserStack
+
+approximate time- 300testcases- 2 and half hours
+iOS takes double the time of android
+
+Appium internally has more support to android than iOS
+
+
+bios intel-vt on for haxm installer issue: https://www.youtube.com/watch?v=4ZZLyvlmLFg
+
+
+For Emulator:
+
+first install packages in android sdk manager
+then create emulator using android avd manager
+
+start appium server and start emulator
+execute the script
+
+
+For RealDevice:
+
+
+first install packages in android sdk manager
+Connect real device using cable or wifi- but before that got to settings->About Device->BuildNumber->Tap 7 times->This enabled dev options
+Now go to settings again->Developer options->turn USB Debugging on
+
+start appium server and start emulator
+execute the script
+
+ADB - android debug bridge - command line tool which acts as bridge between client and application(device)
+
+adb devices
+adb logcat
+adb install
+adb pull txt
+add push txt
+
+AndroidStudio- Android Monitor- logact,monitors like dev tools in browser
+
+Locator tools:
+
+UIAutomatorViewer- from android
+Appium Inspector - from appium for both ios and android
+ios inspector- for ios apps
+
+
+id - resource-id
+xpath -
+class - class
+name - content desc or text
+
+
+For native apps- the way we locate can be same for ios and android but the locators will be different.
+
+accesbility id
+xpath
+
+Mobile gestures-
+TOUCHACTION - move, press, hold actions
+driver methods- lockDevice, unlockDevice, zoom, push , press, tap, hidekeyBoard
+
+
+
+

@@ -1,0 +1,22 @@
+{
+   "destination_addresses" : [ "Francisco Terrace, Victoria, BC V8N, Canada" ],
+   "origin_addresses" : [ "789 W Pender St #310, Vancouver, BC V6C 1H2, Canada" ],
+   "rows" : [
+      {
+         "elements" : [
+            {
+               "distance" : {
+                  "text" : "112 km",
+                  "value" : 111809
+               },
+               "duration" : {
+                  "text" : "3 hours 14 mins",
+                  "value" : 11666
+               },
+               "status" : "OK"
+            }
+         ]
+      }
+   ],
+   "status" : "OK"
+}

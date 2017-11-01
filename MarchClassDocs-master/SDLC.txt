@@ -1,0 +1,283 @@
+Software - Program or collection of programs/Set of instructions that we give to computer.
+allows user to interact with computer, computer hardware or performs some tasks.
+
+Ex: Internet browser, Operating System, MS Word
+
+SDLC - Software Development Life Cycle.
+It is a framework.It defines what all tasks you should perform to develop and maintain the software.
+
+Benefit:
+quality of software
+customer requirements/customer expectation/customer satisfaction
+Time and cost
+
+SDLC stages
+Planning and Requirement Analysis
+Defining Requirement
+Design
+Implementation
+Test
+Deployment
+Maintenance
+
+Planning and Requirement Analysis
+Preliminary analysis
+project Manager - customer, sales department, and other experts
+how to do a project, product feasibility, customer requirements
+Cost and technical aspects
+Risk associated
+
+Ex: 	User registration
+	Login
+	Logout
+	Dashboard Landing Page
+
+Role - Product Owner,Project Manager, Customer
+
+Tools/Equipments - rough document
+
+
+Defining Requirements
+SRS and BRD documents
+SRS - Software Requirements Specification.
+Functional requirements
+describes what the software will do and how it will be expected to perform.
+establishes the basis for an agreement between customers and company on what the software product is to do as well as what it is not expected to do. 
+The requirement is defined clearly so that you can reduce later redesign. 
+It should also provide estimating on product costs, risks.
+help prevent software project failure.
+
+BRD stands for Business Requirement Document.
+what is required, rather than on how to achieve it.Non-functional requirements such as 
+(1) Productivity - How much a system aids users? For example, "We used to be able to handle 10 complaints in an hour and now we can handle 12."
+(2) Performance - How fast should the system be?
+(3) Capacity - How much traffic must the system be able to handle?
+(4) Scalability - How easily can the system be expanded to handle increased throughput?
+(5) Availability - Does the system need to be 24/7, weekdays only etc...?
+(6) Recoverability - How quickly should the system be made operational after an outage?
+(7) Integrity - How predictable and reliable should the system be?
+(8) Exception handling - How will processing exceptions be handled?
+(9) Logging - Do we need to have audit trails of activities?
+(10) Security - What are the security characteristics?
+(11) Manageability - How easy is it to manage the system?
+(12) Useability - What interfacing is required for end-users?
+(13) Interoperability - Does the system need to be able to interface with other systems? How?
+(14) Extensibility - Can the system be expanded to support new functionality?
+(15) Maintainability - How readily can the system be understood? How extensive is the documentation.
+(16) Upgradeability - How easy is it to upgrade the system?
+(17) Portability - Can the system be moved to other platforms easily?
+(18) Deployability - How can the system be deployed? In components or all at once?
+(19) Data Currency - How up-to-date should the information be? Real-time?
+(20) Data Retention - How long does data need to be kept for?
+(21) Internationalization - Does the system need to support multiple time zones, languages and standards?
+
+Role - Business Analyst, Product Manager/Owner
+
+Tools/Equipments - SRS and BRD documents
+
+Ex: 	User Registration
+		Username input field
+		Password input field
+		Checkbox to accept terms and conditions
+		Submit button
+		Save user in database
+
+	Login Page
+		Username input field
+		Password input field
+		Submit button
+		Read user from database
+		Log user into the system
+	Logout Page
+		Logout button
+		Clear session
+		Prevent account theft
+	Dashboard
+		Main home page
+		New users should be redirected here
+		Existing users should redirect here after login
+
+
+Design
+blueprint for the software
+Propose more than one design
+DDS - Design Document Specification, reviewed by stakeholders.
+Check for risks, budget and time to develop the product and select best design.
+minute details will be documented in DDS
+flowcharts and UML diagrams
+what technologies to be used, flow of application
+
+Role - Architect/ UI Designer
+
+Tools/Equipments - different diagrams
+		Use Case Diagrams - actors and their responsibilities
+Sequence Diagrams - step by step process flow
+Class Diagrams - defining variable methods or properties/actions for given behaviour
+Activity Diagram - flow chart
+Wireframes - Positioning UI elements
+
+Ex: Includes Business rules, user interface layouts, color schemes, what programming languages to use, frameworks, Database relationships, Architecture of the application, supported browsers etc.
+
+Implementation
+DDS -> design to code
+Choose programming language
+Modules and then integrated
+
+Role - Frontend developer nowadays called web developer, backend developer, App developer, full stack developer, DBA
+
+Ex: operations team will set up physical hardwares for the servers, Developers write the code, Designers continue planning the user interface, tester will analyze requirements and starting building test cases with test plans.
+
+Testing
+defects or issues or faults or failures, track, get it fixed and retest it -> SRS
+
+Role - Quality Engineer/Analyst,QA,QE
+
+Ex: suppose development is done and a tester finds that when a user logout session is not cleared, which is nothing but someone can click on login button or refresh the page and access the records.All these are tested in testing phase.
+
+Deployment
+different servers.
+	SIT - System Integration Testing
+	UAT - User Acceptance Testing
+	Production Testing
+
+GIt repository or code repository
+build that application and deploy it in a machine and host it from there.
+
+Ex: 	dev.talentscreen.io
+	Qa1.talentscreen.io - SIT
+	Qa2.talentscreen.io - UAT
+	Talentscreen.io - Live
+
+
+Role - Build Engineer, Deployment Engineer, Release Engineer
+
+Maintenance
+issues/errors
+enhance the product - better versions
+
+Role - production support team, operations team, project manager, customer support.
+
+Evaluation
+Disposal
+
+SDLC -> ALM
+ALM - Application LifeCycle Management.
+Same as SDLC phases.
+continuous integration, continuous delivery, test driven development.
+
+
+Agile Methodology
+
+Product Owner - represent end user.
+
+Sprint - duration, ideally 1-4 weeks
+
+Scrum Master - Project Manager
+
+Scrum Team - 7 +/- 2, 4 dev, 2 testers, 1 lead
+
+Product Backlog - Whole set of requirements finalized by Product Owner
+
+Sprint Backlog - sprint requirements chosen from product backlog based on priority for each sprint
+
+User Stories - Set of requirements subdivided among team members/Subset of sprint backlog
+
+Daily Standup Meeting - 15 - 20 mins
+			What you have done so far
+			Any issues that is blocking you from completing the work
+			What you will do today
+
+Sprint Planning Meeting - Happens before sprint starts
+     Finalize what requirements this sprint should have from sprint backlog, estimation, story points
+
+Sprint Review Meeting - Happens at the end of sprint to demo the application developed to entire team/Product review
+
+Sprint Retrospective Meeting - Process review than product review.
+				Did anything go wrong, should we change any process.
+				Make sure not repeat in next sprint so you can save time and resources for next sprint
+
+Release - move application code to production server/go live
+	For every sprint, every week, for every 2 sprints.
+
+Burndown chart - how much work needs to be done vs remaining timE
+
+Product Backlog Meeting - All the backlog(remaining) details will be discussed.
+
+Storypoint - 
+
+Registration -- 2
+LOginpage -- 2
+Recordings -- 8
+Presentation -- 3
+login -- 2
+
+1,1,2,3,5,8,13 --
+
+based on time taken, the complexity
+xsmall - 1
+small - 2
+medium - 3
+large
+xlarge
+
+MVP - minimum viable product -- each sprint should have it.
+
+
+Rally -- 
+
+Project management tool/ Application lifecycle management tool 
+req ana, design,  dev, test, main
+
+Rally 
+Jira - Dmt -
+
+Defect Mangement tool
+Defects
+
+QC
+Burzilla
+XP
+
+TimeBoxes -- 
+Iterations - no of iterations
+Releases - 
+
+Test case -
+Registration page
+1) Enter all the user details - test data 
+2) Click on submit button
+3) Confirmation mail
+4) IF already exist throw an error message
+
+Expected Output - according to my requirements
+Actual output - output we get when we execute
+
+assert("excpected","actual")
+
+
+
+id
+tc name
+tc desc
+tc - steps
+executing
+assert
+true - passed
+false - defect
+
+
+Severity - Inrepect to Functionality
+Priority - In respect to bussiness point of view
+
+Amazon.com
+
+High Priority n High Severity - Ex=commerce site at checkout there is a problem
+
+High Priority n Less Severity - Logo Pic not display properly
+
+Less Priority n High Severity - Link very rarly clicked is not working properly
+
+Less Priority n Less Severity - Spelling mistakes
+
+
+

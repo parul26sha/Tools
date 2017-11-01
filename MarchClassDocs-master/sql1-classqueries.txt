@@ -1,0 +1,64 @@
+day1:
+
+
+
+--select employee_id,first_name from hr.employees;
+
+--select * from hr.employees where employee_id=130;
+
+--SELECT * from hr.employees where first_name='Ellen';
+
+--select * from hr.employees where HIRE_DATE='11-MAY-04';
+
+--select department_id,employee_id,first_name from hr.employees order by
+-- department_id desc, employee_id desc;
+ 
+ --select * from hr.employees where last_name like '%in%';
+ 
+ --select * from hr.employees where job_id='AD_PR' and first_name='Steven'
+ 
+ --select distinct last_name from hr.employees;
+ 
+ select * from hr.employees where employee_id between 100 and 150;
+
+
+
+day2:
+-SELECT last_name, salary, (salary*10)+100  "IncrementedSalary" FROM hr.employees;
+
+--select employee_id,manager_id from hr.employees where manager_id is not null ;
+
+--SELECT last_name, salary, (salary*10)+100  "IncrementedSalary" FROM hr.employees;
+
+--select first_name|| ' it's '  ||last_name as fullname from hr.employees;
+--fetch all employers details whose salry is greater than or equal to 5000
+--select * from hr.employees where salary>=5000;
+-- fetch employers who do not belong to IT_prog or FI_account
+--select * from hr.employees where Job_id <> 'IT_PROG';
+--select * from hr.employees where Job_id not in ( 'IT_PROG', 'FI_ACCOUNT');
+--SELECT employee_id, last_name, salary, manager_id FROM hr.employees WHERE manager_id IN (100, 101, 201) ;
+
+--fetch employers who do not have commission_pct and those who are in It_dept
+--select * from hr.employees where Job_id='IT_PROG' and COMMISSION_PCT is null;
+
+--select * from hr.employees where Job_id='IT_PROG' or COMMISSION_PCT is null;
+
+--employees whose last name is king
+--select lower(last_name), upper(first_name), initcap(first_name) from hr.employees;
+--select * from hr.employees where lower(last_name)='king';
+
+--select SUBSTR('HelloWorld',2,6) from dual;
+
+--select substr(first_name, 2,3), first_name from hr.employees
+
+--select length(TRIM('H' from '  HelloWorldH  ')), length('  HelloWorldH  ') from dual;
+
+--SELECT ROUND(45.92637878,2),ROUND(45.42637878),ROUND(46.92637878,-1) FROM DUAL;
+--SELECT trunc(45.92637878,2),trunc(45.42637878),trunc(46.92637878,-1) FROM DUAL;
+
+--remainder after dividing given 2 numbers
+--select mod(12,5) from dual;
+
+--select * from hr.employees where hire_Date < '25-Jun-10' ;
+select sysdate from dual;
+select trunc(sysdate,'Year') from dual;

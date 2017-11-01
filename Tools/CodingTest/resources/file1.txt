@@ -1,0 +1,11 @@
+
+ER Diagrams – pictorial representation of relations between tables in RDBMS.
+
+Types of Relations:
+One-One:one customer having one mobile number ,or every employee belongs to one department
+
+One-Many:one customer may be having more than one order.
+Many-Many: an order can have multiple products and a product can be in multiple orders 
+primaryKey – A column or Set of Columns which help to identify a row uniquely.PK cannot be null or empty
+In a table. Max of 32 columns we can combine I oracle DB as PK.
+ForeignKey – A column that enforces referential integrity. A column in one table(child table)

@@ -1,0 +1,121 @@
+#This is a comment line
+echo "Hello world"
+echo "Todays date : `date`"
+a=10
+b=20
+echo "value of a and b : $a , $b"
+
+
+#second script to create directory and create file, add text
+mkdir script
+cd script
+touch file1.txt
+echo "first file content" > file1.txt
+echo "Hello shell scripting" > file2.txt
+cat file1.txt
+cat file2.txt
+ls -a
+
+count=$#
+echo "total cmd line arguments : $count "
+a=$1
+b=$2
+c=`expr $a + $b`
+echo "sum is : $c"
+echo "multiplication : `expr $a \* $b`"
+
+echo "enter first number :"
+read a
+echo "enter second number :"
+read b
+c=`expr $a + $b`
+echo "sum is : $c"
+echo "multiplication : `expr $a \* $b`"
+
+
+read num
+if [ `expr $num % 3` -eq 0 ] && [ `expr $num % 5` -eq 0 ]
+then
+echo "$num is divisible by 3 and 5"
+elif [ `expr $num % 3` -eq 0 ]  
+then
+echo "$num is divisible by 3"
+elif [ `expr $num % 5` -eq 0 ] 
+then
+echo "$num is divisible by 5"
+else
+echo "It is not divisible by 3 or 5"
+fi
+
+
+case $1 in 
+"1") echo "its one";;
+"2") echo "its two";;
+*) echo "default case";;
+esac
+
+
+
+for i in 1 2 3 4 5
+do
+echo "$i"
+done
+
+
+for (( i=1; i<=20; i++ ))
+do
+echo "$i"
+done
+
+i=1
+while [ $i -le 10 ] 
+do
+echo "$i"
+i=`expr $i + 1`
+done
+echo "out of while loop"
+
+
+************************
+
+#script that generates input files with different orderid inside the file
+
+echo "enter directory name"
+read dirname
+#check if directory already exists
+if [ -d "$dirname" ]
+then
+echo "directory already exists"
+else
+mkdir $dirname
+fi
+
+cd $dirname
+
+# creating a variable to hold current time of date
+runid=`date +%H%M%d` 
+
+# creating a file with some content
+cat<<END>>order.txt
+orderid
+name
+supplier
+END
+
+# create multiple files by changing orderid everytime
+for i in 1 2 3 4 5
+do
+sed "s/orderid/$i/g" order.txt >> log$runid$i.txt
+done
+
+ls -a
+
+#print all 5 files content
+
+for i in log*
+do
+cat $i
+done
+
+
+

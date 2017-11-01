@@ -1,0 +1,9 @@
+Kind of Mobile Apps:
+Native Apps – developed in specific OS supported language(c, java) and needs that particular domain expertise
+Fast, Reliable, best user experience and easy access to wider functionalities of device like camera, gps, contactList , accelerometer
+Publishers can use Push notifications to alert for new things.
+
+Installed through PlayStore or AppStore
+
+You can work even when you are offline.
+Eg: Facebook, linked in, Angrybirds, whatsApp etc….

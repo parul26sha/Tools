@@ -1,0 +1,12 @@
+display location_id, city and country id by ordering cities in asc order and countries in desc order
+employees who is an IT programmer and who has more than 5 years of experience
+employees whose salary>5000 and who are sales rep's or employees who belong to dept-60
+Write a query to Select first_name, dept name, deptid,salary  from employees table and departments table  based on all the common column. 
+Write a query to Select first_name, dept name, deptid,salary  from employees table and departments table  based on dept id
+Write a query to Select  city, firstname, deptname  for an employee 
+Write a query to fetch  empname, deptname and deptid  of all the departments with and without employees.
+query to find min sal under each job category in specific  department.
+write a query to find location_ids common to department and locationt able
+write a query to fetch employee firstname and street adress (use emp table and locations table)
+
+training@whitebox-learning.com

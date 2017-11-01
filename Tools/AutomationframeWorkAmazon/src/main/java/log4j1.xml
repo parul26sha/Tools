@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<Properties>
+		<Property name="basePath">/home/parul/Desktop/Tools/AutomationframeWork/logs</Property>
+	</Properties>
+	
+ 	<Appenders>
+    	    <Console name="stdout" target="SYSTEM_OUT">
+        	    <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %p %m%n"/>
+        	</Console>
+
+    	    <RollingFine name="fileLogger" filename="$(basePath)/info.log">
+        	    <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %p %m%n"/>
+        	</RollingFine>
+    </Appenders>
+    
+    <Loggers>
+  		<Root level="all">
+  			<AppenderRef ref="stdout" level="all" />
+    		<AppenderRef ref="fileLogger" level="info"/>
+    	</Root>
+    </Loggers>
+    
+</Configuration>

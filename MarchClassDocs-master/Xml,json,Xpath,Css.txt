@@ -1,0 +1,198 @@
+Xml, Json, Xpath n Css
+
+html - hypertext markup language 
+It is used to diplay the content on the webpage
+All the tags are predefined
+
+Xml - Xtensible markup language
+it is used to transfer the data
+All the tags are userdefined
+
+irrespective of the language, platfoms 
+web application or mobilie
+
+
+
+<html>
+<p>this is paragraph</p
+<button>Click</button>
+<input type = text></input>
+</html>
+
+<xml>
+<students>
+	<student>
+	<id>6789</id>
+	<name>John</name>
+	<address>
+		<street>Liberty Street</street>
+		<city>Fremont<city>
+	</address>
+	<phone>678956780</phone>	
+	</student>
+	<student>
+	<id>6780</id>
+	<name>John1</name>
+	<address>
+		<street>Liberty Street</street>
+		<city>Fremont<city>
+	</address>
+	<phone>678956780</phone>	
+	</student>
+	<student>
+	<id>6789</id>
+	<name>John</name>
+	<address>
+		<street>Liberty Street</street>
+		<city>Fremont<city>
+	</address>
+	<phone>678956780</phone>	
+	</student>
+	<student>
+	<id>6789</id>
+	<name>John</name>
+	<address>
+		<street>Liberty Street</street>
+		<city>Fremont<city>
+	</address>
+	<phone>678956780</phone>	
+	</student>
+</students>
+</xml>
+
+dtd - document type defnition
+it speci some rules to html
+xsd - xtensible schema defnition
+it specifies how my xml document should look like
+
+<xml>
+	<student>
+	<id>789</id>
+	<name>John</name>
+	<address>
+		<street>Liberty Street</street>
+		<city>Fremont<city>
+		<zip>56789</zip>
+	</address>
+	<phone>678956780</phone>
+	<button>
+	</student>
+</xml>
+
+<xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:xs="shiporder.xsd">
+<xs:element name="student">
+	<xs:element name="id" type="xs:number"/>
+	<xs:element name="name" type="xs:string"/>
+  <xs:complexType name="address">
+    <xs:sequence>
+      <xs:element name="street" type="xs:string"/>
+      <xs:element name="city" type="xs:string"/>
+      <xs:element name="zip" type="xs:number"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="phone" type="xs:number"/>
+</xs:element>
+
+
+Complex elements - nested tags in it
+Simple Elements - single element
+
+
+in any language we have datatype -
+ integer/ number -- 7899
+ string - john
+ char - f
+ long - 56678989904657667
+ short - 67895 -
+ float - 78.99
+ 
+ All webservices are API(Web, with in the company, not public)
+ but not all API are webservices(web)
+ 
+ 
+Json- java script object notaion
+json - transfering data, lightweight, fast
+
+in json - everything is represented in the form of array
+ke:value pair
+
+student{
+id:678,
+name:John,
+address{
+	street:Liberty Street,
+	city:Fremont
+	Zip:98765},
+phone:7895678954
+}
+
+Xpath n Css
+------------
+
+Both are used to locate the elements
+
+xpath - how mant ways we can locate the elements
+Absolute - html/head/div[4]/form/li/ui[6]
+realtive - //li/ui[6]
+
+1) Finding all p tags
+	//p 
+2) finding third p tag element in my whole page
+	(//p)[3] 
+	(//ul/li)[3] - it will give first instance of ul/li
+	//ul/li[3] - it wil give all the ul/li[3] elements
+3) last p tag element of the web page
+	(//p)[last()]
+	(//p)[last()-1]
+4) To find all the child elements of a given parent
+	//div/ui/*
+	//div[@id='promo-slider']/*
+5) Finding element using particular attribute
+	//div[@id='promo-slider']
+6) Finding element through text over the element
+	//a[text()='info@whitebox-learning.com']
+	//*(starts-with[text(),'info@whitebox'])
+	
+	
+CSS selectors/locators-
+clearner, faster, support from all the browsers
+ 
+ p ,img, div 
+ p,div
+ p,img
+ 
+1) Simple selectors
+with class attribute - .container
+with id attribute - #navbar-collapse
+with tag name - img
+
+2) Nested Selectors
+div ul - all the child elemnts
+div>ul - all direct child elemnts
+div+ul - all the sibbling elements of that tag
+
+3) Attribute selectors
+h1[class='section-heading text-highlight']
+a[data-slide='prev']
+div[id='idType']
+
+4) Pseudo selectors
+div:empty
+input:empty
+
+5) Structural Pseudo selectors
+form div:nth-child(4)
+form div:first-child
+form button:last-child
+
+
+
+
+
+
+
+
+
+
+

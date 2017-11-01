@@ -1,0 +1,141 @@
+--select * from hr.employees where min(salary) >3000;
+
+-- find the sum of salaries under each department who have min salary > 5000
+select department_id, sum(salary),min(salary) from hr.employees group by department_id having min(salary) >5000;
+
+select department_id, sum(salary),min(salary) from hr.employees where department_id in (90,100)
+group by department_id having min(salary) >5000;
+
+-- Get all employees who have same job_id as the employer with id 141 
+
+select job_id from hr.employees where employee_id=100;
+
+select * from hr.employees where job_id = 
+(select job_id from hr.employees where employee_id=100)
+
+
+--min salary for sales department
+select min(salary) from hr.employees where department_id=80;
+
+select department_id,min(salary) from hr.employees group by department_id having
+min(salary) > (select min(salary) from hr.employees where department_id=80);
+
+--query to fetch second highest salary from employees table
+--select max(salary) from hr.employees where salary <> (select max(salary) from hr.employees)
+
+-- Top 5 salaries.
+select * from (select distinct salary from hr.employees order by salary desc) where rownum<=5;
+
+--Top 5 salaried employee details.
+select first_name,employee_id,salary from hr.employees where salary in 
+(select * from (select distinct salary from hr.employees order by salary desc) where rownum<=5);
+
+
+--find employees who are acting as  managers
+select * from hr.employees where employee_id in (select manager_id from hr.employees  where manager_id is not null);
+
+-- employers  who are assigned to some manager
+--select * from hr.employees where manager_id is not null;
+
+DDL:
+create table Customer(
+
+name varchar2(20) primary key,
+
+phone number(10) not null,
+
+email varchar2(40) unique,
+
+adress varchar2(40)
+
+--constraint pk1 primary key(name)
+
+)
+
+
+
+--insert into customer values ('Alan',7987889,'a@a.com');
+
+--insert into customer values ('Alan',7987889,'a@a.com');
+
+--select * from Customer
+
+
+--alter table Customer add city varchar2(20);
+
+--insert into customer(name,phone,email) values('alex',45435435,'a@b.com');
+
+--alter table Customer add id number(20);
+
+--create sequence idseq  start with 1 increment by 1 maxvalue 10000;
+
+--insert into customer(name,phone,email,id) values('sweta',3443343,'a@c.com',idseq.nextval )
+--insert into customer(name,phone,email) values('swetaaaa',3342,'a@d.com' );
+
+--select * from customer;
+
+--insert into customer values ('Alan',7987889,'a@a.com');
+
+--insert into customer values ('Alan',7987889,'a@a.com');
+
+--select * from Customer
+
+
+--alter table Customer add city varchar2(20);
+
+--insert into customer(name,phone,email) values('alex',45435435,'a@b.com');
+
+--alter table Customer add id number(20);
+
+--create sequence idseq  start with 1 increment by 1 maxvalue 10000;
+
+--insert into customer(name,phone,email,id) values('sweta',3443343,'a@c.com',idseq.nextval )
+
+--insert into customer(name,phone,email) values('swetaaaa',3342,'a@d.com');
+
+--create table student(
+--sid number(20) primary key,
+--name varchar2(20) );
+
+
+
+
+create or replace trigger seqTrigger2
+before insert on student
+for each row
+begin
+:new.sid:=idseq.nextval;
+end;
+
+
+insert into student(name) values('joe');
+
+select * from student;
+
+
+
+Descibe Table_name-->get al the columns in table
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

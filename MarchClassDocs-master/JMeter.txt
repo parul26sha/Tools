@@ -1,0 +1,106 @@
+Jmeter - is open source tool
+
+is is java based tool
+it is tool to do performance/load test
+
+Performance testing - checks the performance of your system.
+Responsiveness, speed, scalability, stability
+
+LoadRunner , Silk performer
+
+Types of performance testing:
+
+Load testing - Testing the webapp for very high load
+Stress Testing - To know the break point of the system
+Volume testing - testing the db
+Endurance testing - Testing the system for high load for over a peroid of time(12hr, 24hr)
+
+Download Java and Apache Jmeter.
+
+User point of view - How fast my application is open
+Bussiness point of view - How many users i am going to serve
+How fast iam gng to serve
+System - Hardware Configuration
+Os, CPU, Memory, N/w bandwidth, DB
+
+In my Jmeter how to load test--
+plan the test
+Take a application 
+create some load
+create some some scenarios
+implement them 
+add assertions
+add reports
+
+Test Plan
+
+Thread Group
+Thread - No of Users
+Rampup time - All my resquest has start 
+10Seconds - 5 users
+
+0th sec - 1st users
+3rd sec - 2nd users
+5th sec - 3rd user
+7th sec - 4th user
+9th sec - 5th user
+
+
+Samplers - we add our request
+Logic Controller - For Controlling the logic
+Config Elements - Including ur DB/ config settings
+Timers - To add delays in the threads
+Pre Processor - It will be exceuted only once before for the test
+post processor -  It will be exceuted only once after for the test
+Assertions - Add check points on the response
+Listeners - It gives the output in the form of graphs, tables
+
+
+Things to observe in the output:
+
+Load Time - Time to load the page	
+Connect time -	Time taken to connect to the server
+Latency - time taken to receive the first byte of the response
+Size - 
+
+Sample Error% percentage - Error percantage(No of requests, errors)
+Throughput - response that are handled by webapp in 1 sec
+
+
+Config Elements:
+
+User Defined Variables: Instead of hard coding the data in the request, we can pass values 
+using user defined variables
+
+Csv data set variables : we can do data driven testing. 
+
+Http Request Defaults: we can include any common informartion(Server/Ip name, Parameters)
+
+Http Header Defaults : All the header information of the request is included.
+
+JDBC connection config : for any oracle server based transastions are done using this.
+
+Http cookie manager : dealing with cookies
+
+Http Authorization manager : Used mainly for authenticate to any request.
+
+
+Samplers: 
+Http sampler, Java sampler, junit sampler, soap, ftp, smpt
+
+Logic Controllers : 
+
+PreProcessor : If any logic to be executed before any request.(db connections, html link parser)
+PostProcessor : If any logic to be executed after any request.
+
+JDBC Configuration : 
+Download ojdbc jar and include that jar in jmeter, lib folder
+JDBC Connection Configuration : URL, Class, Uname, Pwd
+JDBC Request : Writing our queries
+Results in Listeners : View result in table
+
+WebServies Testing : 
+
+Soap/Xml : 
+
+

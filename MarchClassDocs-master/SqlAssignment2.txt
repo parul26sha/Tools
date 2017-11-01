@@ -1,0 +1,16 @@
+7th highest salry in employees table
+
+write a query to get employee firstname, department id, salary of all employees who have same salary as 
+the min salary of  department with id 50
+
+get all employees who have same job_id as the employee with id 141 and salary is same as employeee with id 143
+
+employers who are not managers in employees table
+
+employers who are highest paid in the company
+
+employers who are least paid in the company
+
+create a table and modify column name , datatype of column
+
+Create a table and execute insert,delete,drop,flashback,insert,truncate and see the difference
